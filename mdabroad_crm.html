@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://mdabroadcrm.netlify.com/mdabroad_crm.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="./mdabroad_crm_files/client-SDK.min.js.download"></script>
+
+    
+
+    <script>
+
+    
+
+        
+
+    var onSuccess = function(data) {
+
+        var consumer_phone = data.personalInfo.contactInfo[0].phone;
+
+        console.log ("Consumer Phone: " +  consumer_phone);
+
+        
+
+           var crm_url = "https://mdis2.mdabroad.com/patient/searchByPhone?phone_number="; // set the URL of the CRM here
+
+           document.getElementById("crm_frame").src = crm_url + consumer_phone;
+
+           console.log ("set iframe URL");
+
+        
+
+            
+
+    };
+
+        
+
+    var onError = function(data) {
+
+       
+
+    };
+
+      
+
+    lpTag.agentSDK.init({});
+
+    function myfunction() {
+
+        lpTag.agentSDK.get('authenticatedData', onSuccess, onError);
+
+        console.log ("WA CRM widget init");
+
+    }
+
+    setTimeout(myfunction, 1000); 
+
+    </script>
+
+ 
+
+ 
+
+     
+
+    </head><body>
+
+      <iframe id="crm_frame" scrolling="yes" height="550" width="1300" src="./mdabroad_crm_files/saved_resource.html"></iframe>
+
+    
+
+
+</body></html>
